@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pe.edu.tecsup.springnootapp.beans.Calculadora;
+import pe.edu.tecsup.springnootapp.beans.Saludo;
 
 @SpringBootApplication
 public class SpringBootAppApplication implements CommandLineRunner {
@@ -16,6 +17,8 @@ public class SpringBootAppApplication implements CommandLineRunner {
 	@Autowired
 	private Calculadora calculadora ;
 
+	@Autowired
+	private Saludo saludo ;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootAppApplication.class, args);
@@ -28,6 +31,11 @@ public class SpringBootAppApplication implements CommandLineRunner {
 		Double suma = this.calculadora.sumar(2.0,3.0);
 
 		log.info(suma.toString());
+
+		String nombre = "Jaime";
+
+		log.info(this.saludo.dia(nombre));
+
 
 	}
 }
